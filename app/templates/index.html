@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+  <div class="titulo">
+  <h1>Formula 1 </h1>
+</div>
+<div class="cabecalho">
+  <img id="logo" src="static/logo.png" alt="logo" width="350">
+</div>
+</header>
+<h2>Sobre</h2>
+<p>Esta aplicação web ilustra o uso de uma base de dados de <a href="https://pt.wikipedia.org/wiki/F%C3%B3rmula_1">Formula 1</a> . Esta aplicação é construida usando 
+<a href="https://docs.python.org/3/library/sqlite3.html">sqlite3</a>,
+<a href="https://flask.palletsprojects.com">Flask</a>, and
+<a href="https://jinja.palletsprojects.com">Jinja</a>.
+</p>
+
+<h2>Algumas estatísticas da base de dados</h2>
+<div class="bloco">
+<div class="tab"> 
+<table class="tabela1">
+<tr>
+  <th>Itens</th>
+  <th class="col2">Contagem</th>
+</tr>
+<tr>
+  <td>Pilotos</td>
+  <td>{{ stats.n_Pilotos }}</td>
+</tr>
+<tr>
+  <td>Equipas</td>
+  <td>{{ stats.n_Equipas }}</td>
+</tr>
+<tr>
+  <td>Corridas</td>
+  <td>{{ stats.n_Corridas }}</td>
+</tr>
+<tr>
+  <td>Países das Corridas</td>
+  <td>{{ stats.n_Paises }}</td>
+</tr>
+<tr>
+  <td>Máximo de Vitórias</td>
+  <td>{{ stats.maximo}}</td>
+</tr>
+<tr>
+  <td>Nacionalidades</td>
+  <td>{{ stats.n_Nacionalidades }}</td>
+</tr>
+</table>
+</div>
+<div class="carrito"><img id="carro" src="static/carro.png" alt="carro" width="350"></div>
+</div>
+
+<h2>Amostra de Funcionalidades</h2>
+
+<h3>Pilotos</h3>
+<p>
+   <a href="/pilotos">Listar tudo</a>
+</p>
+<p>Obter informação dos pilotos:
+<p>Procurar por nome:
+<form name="msearch" action="javascript:window.open('/pilotos/search/'+document.forms['msearch'].elements['expr'].value,'_self')">
+  <input name="expr" id="expr" class="submit" value="Max Verstappen" required/>
+  <input type="submit" class="search" value="search"/>
+</form>
+</p>
+
+<h3>Equipas</h3>
+<p>
+   <a href="/equipas">Listar tudo</a>
+</p>
+<p>Obter informação das equipas:
+  
+<p>Procurar por nome
+  <form name="asearch" action="javascript:window.open('/equipas/search/'+document.forms['asearch'].elements['expr'].value,'_self')">
+    <input name="expr" id="expr" class="submit" value="Red Bull Racing" required/>
+    <input type="submit" class="search" value="search"/>
+  </form>
+</p>
+
+<h3>Corridas</h3>
+<p>
+   <a href="/corridas">Listar tudo</a>
+</p>
+
+<p>Obter informação das corridas:
+<form name="gid" action="javascript:window.open('/corridas/search/'+document.forms['gid'].elements['expr'].value,'_self')">
+   Nome Corrida:<input name="expr" class="submit" id="expr" value="Gulf Air Bahrain GP" required/>
+   <input type="submit" class="search" value="search"/>
+</form>
+</p>
+
+
+{% endblock %}

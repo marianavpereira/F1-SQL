@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Equipas</h1>
+<table class="tabelax">
+  <tr>
+    <th>
+      <b>Nome</b>
+    </th>
+    <th>
+      <b>País</b>
+    </th>
+    <th>
+      <b>Chefe</b>
+    </th>
+    <th>
+      <b>Motor</b>
+    </th>
+    <th>
+      <b>Número de Campeonatos</b>
+    </th>
+  </tr>
+  {% for e in equipas %}
+  <tr>
+    <td>
+      <a href="/equipas/{{ e.nomeEquipa }}/">{{ e.nomeEquipa }}</a>
+    </td>
+    <td>
+      {{ e.pais_origem }}
+    </td>
+    <td>
+      {{ e.chefe }}
+    </td>
+    <td>
+      {{ e.motor}}
+    </td>
+    <td>
+      {{ e.num_campeonatos }}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

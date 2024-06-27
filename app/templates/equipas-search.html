@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Resultados da Pesquisa</h1>
+<p><b>Expressão da Pesquisa</b>: "{{ search.expr }}"</p>
+<p>
+<ul>
+  {% for e in equipas %}
+  <li>
+    <a href="/equipas/{{ e.nomeEquipa }}/">{{ e.nomeEquipa}}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

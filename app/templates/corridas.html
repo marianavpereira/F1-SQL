@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ corrida.nomeCorridas }} </h1>
+<p>
+  <b>Nome do Circuito:</b> {{corrida.nomeCircuito}}
+</p>
+<p>
+  <b>Data: </b>{{ corrida.data }}
+</p>
+<p>
+  <b>Número de voltas:</b>{{corrida.num_voltas}}
+</p>
+<p>
+  <b>País:</b> {{corrida.pais}}
+</p>
+<p>
+  <b>Distância:</b> {{corrida.distancia}} km
+</p>
+<p>
+  <b>Número de zonas DRS:</b> {{corrida.drs}} 
+</p>
+<p>
+  <b>Recorde Volta:</b> {{corrida.recorde_volta}} 
+</p>
+<p>
+  <b>Resultados: </b>
+    <a href="/resultados/{{ corrida.nomeCorrida }}/">{{ corrida.nomeCorrida }}</a>
+</p>
+
+{% endblock %}

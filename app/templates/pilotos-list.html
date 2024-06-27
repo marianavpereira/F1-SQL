@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Pilotos</h1>
+<table class="tabelax">
+  <tr>
+    <th>
+      <b>Nome</b>
+    </th>
+    <th>
+      <b>Número</b>
+    </th>
+    <th>
+      <b>Equipa</b>
+    </th>
+    <th>
+      <b>País</b>
+    </th>
+  </tr>
+
+  {% for p in pilotos %}
+  <tr>
+    <td>
+      <a href="/pilotos/{{ p.nomePiloto }}/">{{p.nomePiloto }}</a>
+    </td>
+    <td>
+      {{ p.numPiloto }}
+    </td>
+    <td>
+      {{ p.nome_equipa }}
+    </td>
+    <td>
+      {{ p.pais }}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

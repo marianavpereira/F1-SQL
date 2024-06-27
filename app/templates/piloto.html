@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ piloto.nomePiloto }}</h1>
+<p>
+  <b>Número do Piloto: </b>{{ piloto.numPiloto }}
+</p>
+<p>
+  <b>Nome: </b>{{ piloto.nomePiloto }}
+</p>
+<p>
+  <b>País: </b>{{ piloto.pais }}
+</p>
+<p>
+  <b>Data de Nascimento: </b>{{ piloto.data_nascimento }}
+</p>
+<p>
+  <b>Motor: </b>{{ piloto.motor }}
+</p>
+<p>
+  <b>Nome do Chassi: </b>{{ piloto.nome_chassi }}
+</p>
+<p>
+  <b>Pontos totais da carreira: </b>{{ piloto.pontos_finais }}
+</p>
+<p>
+  <b>Equipa: </b>
+<ul>
+  {% for g in equipa %}
+  <li>
+    <a href="/equipas/{{ g.nome_equipa }}/">{{ g.nome_equipa }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+<p>
+  <b>Colegas de Equipa: </b>
+<ul>
+  {% for a in colega %}
+  <li>
+    <a href="/pilotos/{{ a.nomePiloto }}/">{{ a.nomePiloto }}</a>
+  </li>
+  {% endfor %}
+</ul>
+
+<p>
+  <b>Corridas: </b>
+  <table class="tabelax">
+    <tr>
+      
+      <th>Corrida</th>
+      <th>Posição na Qualificação</th>
+      <th>Posição Final</th>
+      <th>Tempo da Corrida</th>
+      <th>Pontos Ganhos</th>
+    </tr>
+    {% for h in part %}
+    <tr>
+      <td>{{h.corrida}}</td>
+      <td>{{h.quali}}</td>
+      <td>{{h.posicaoFinal}}</td>
+      <td>{{h.tempoFinal}}</td>
+      <td>{{h.pontosGanhos}}</td>
+    </tr>
+  {% endfor %}
+    </table>
+</p>
+    <b>Nota:</b> <p>Se o piloto não for vencedor o tempo final descrito é a diferença para o vencedor</p>
+
+{% endblock %}

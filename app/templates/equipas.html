@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{dados.nomeEquipa}}</h1>
+<p>
+  <b>Equipa: </b>{{ dados.nomeEquipa }}
+</p>
+<p>
+  <b>País: </b>{{ dados.pais_origem }}
+</p>
+<p>
+  <b>Chefe: </b>{{dados.chefe }}
+</p>
+<p>
+  <b> Motor: </b>{{dados.motor }}
+</p>
+<p>
+  <b> Número de Campeonatos: </b>{{dados.num_campeonatos }}
+<p>
+    
+  <b>Pilotos:</b>
+<ul>
+  {% for m in pilequipas %}
+  <li>
+    <a href="/pilotos/{{m.nomePiloto}}/">{{m.nomePiloto}}</a>
+  </li>
+  {% endfor %}
+
+</ul>
+</p>
+{% endblock %}
+

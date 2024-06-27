@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{resultados.corrida}}</h1>
+<table class="tabelax">
+  <tr>
+    
+    <th>Corrida</th>
+    <th>Piloto</th>
+    <th>Posição na Qualificação</th>
+    <th>Posição Final</th>
+    <th>Tempo da Corrida</th>
+    <th>Pontos Ganhos</th>
+  </tr>
+  {% for r in resultados %}
+  <tr>
+    <td>{{ r.corrida}}</td>
+    <td>{{ r.nomePiloto}}</td>
+    <td>{{r.quali}}</td>
+    <td>{{r.posicaoFinal}}</td>
+    <td>{{r.tempoFinal}}</td>
+    <td>{{r.pontosGanhos}}</td>
+  </tr>
+{% endfor %}
+  </table>
+</p>
+<p>
+  <b>DNF:</b> Did Not Finish
+</p>
+{% endblock %}
+
